@@ -1,0 +1,13 @@
+<h1>Request offers</h1>
+<%= form_for(:offer, url: offers_show_url, method: :get) do |f| %>
+  <%= f.label 'Uid:' %>
+  <%= f.text_field :uid %>
+
+  <%= f.label 'pub0:' %>
+  <%= f.text_field :pub0 %>
+
+  <%= f.label 'Page:' %>
+  <%= f.text_field :page %>
+
+  <%= f.submit 'Submit' %>
+<% end %>
