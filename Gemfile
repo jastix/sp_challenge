@@ -28,8 +28,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
-  gem 'capybara'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 group :doc do
