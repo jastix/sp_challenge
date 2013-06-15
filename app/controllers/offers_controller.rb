@@ -1,9 +1,11 @@
 class OffersController < ApplicationController
   def new
+    @offer = Offer.new
   end
+  #TODO add action Create to validate offer
 
   def show
-    @offers = Offer.new(offer_params)
+    @offers = Offer.find(offer_params)
   end
 
   private
