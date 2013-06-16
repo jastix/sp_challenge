@@ -7,13 +7,14 @@ class Offer
     :device_id, :timestamp, :offer_types, :hashkey
 
   def self.find(attributes)
-    self.api_connection.get do |req|
+    resp = self.api_connection.get do |req|
       req.url 'offers.' +  attributes[:format]
       attributes.tap { |hs| hs.delete(:format) }.sort_by { |k, v| k }.each do |attr|
         req.params["#{attr[0]}"] = attr[1]
       end
       req.params['hashkey'] = self.generate_hash(attributes)
     end
+    JSON.parse(resp.body)
   end
 
   #######

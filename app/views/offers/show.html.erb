@@ -1,3 +1,15 @@
 <h1>Current offers</h1>
 
-<%= p @offers.body %>
+<% if @offers['code'] == 'NO_CONTENT' %>
+  <div class="no_offers">
+    No offers
+  </div>
+<% elsif @offers['code'] == 'OK' %>
+  <div class="offer">
+    <% @offers.body['offers'].each do |offer| %>
+      <div class='title'>Offer Title: <%= offer.title  %></div>
+      <div class='payout'>Offer Payout: <%= offer.payout  %></div>
+      <div class="thumbnail">Offer Thumbnail: <%= image_tag offer.thumbnail[:lowres] %> </div>
+    <% end%>
+  </div>
+<% end %>
