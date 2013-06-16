@@ -1,4 +1,5 @@
 class OffersController < ApplicationController
+
   def new
   end
 
@@ -6,10 +7,12 @@ class OffersController < ApplicationController
     @offers = Offer.find(offer_params)
   end
 
+  #######
   private
+  #######
 
   def offer_params
-    params.require(:offer).permit(:uid, :pub0, :page, :locale, :appid, 
+    params.require(:offer).permit(:uid, :pub0, :page, :locale, :appid,
                                   :device_id, :ip, :offer_types, :format, :timestamp)
   end
 end

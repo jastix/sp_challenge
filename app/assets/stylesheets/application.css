@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+
+form {
+  display: block;
+}
+
+input {
+  display: block;
+  margin: 5px;
+}
+
+input.submit {
+  width: auto;
+}
+
+div.offer, div.no_offers {
+  display: block;
+  margin: 5px;
+}
