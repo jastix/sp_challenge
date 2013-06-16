@@ -15,13 +15,6 @@ describe Offer do
       }
     end
 
-  %w{ format appid uid locale device_id }.each do |attr|
-    it "it not valid without #{attr}" do
-      @attributes.tap { |hs| hs.delete(attr.to_sym) }
-      expect(Offer.new(@attributes)).to_not be_valid
-    end
-  end
-
   describe '.generate_hash' do
   end
 

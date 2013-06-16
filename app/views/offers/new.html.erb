@@ -1,7 +1,7 @@
 <h1>Request offers</h1>
-<%= form_for(:offer, url: offers_show_url, method: :get) do |f| %>
+<%= form_for(:offer, url: offers_show_url) do |f| %>
   <%= f.label 'Uid:' %>
-  <%= f.text_field :uid %>
+  <%= f.text_field :uid, required: true %>
 
   <%= f.label 'pub0:' %>
   <%= f.text_field :pub0 %>
@@ -10,6 +10,12 @@
   <%= f.text_field :page %>
 
   <%= f.hidden_field :locale, value: 'de' %>
+  <%= f.hidden_field :appid, value: '157' %>
+  <%= f.hidden_field :device_id, value: '2b6f0cc904d137be2e1730235f5664094b831186' %>
+  <%= f.hidden_field :ip, value: '109.235.143.113' %>
+  <%= f.hidden_field :offer_types, value: '112' %>
+  <%= f.hidden_field :format, value: 'json' %>
+  <%= f.hidden_field :timestamp, value: Time.now.to_i %>
 
   <%= f.submit 'Submit' %>
 <% end %>
