@@ -40,12 +40,12 @@ describe OffersController do
     end
 
     context 'with malicious response' do
-      it 'populates @offers with code Malicious_Request' do
+      it 'populates @offers with code Malicious_Response' do
         offer = mock_model(Offer)
         Offer.stub!(:valid_signature?) { false }
         get 'show', offer: @attributes
         expect(assigns[:offers]).to_not be_empty
-        expect(assigns[:offers][:code]).to eql 'Malicious_Request'
+        expect(assigns[:offers][:code]).to eql 'Malicious_Response'
       end
     end
   end

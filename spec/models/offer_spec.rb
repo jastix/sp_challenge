@@ -27,11 +27,12 @@ describe Offer do
     end
 
     context 'With malicious response' do
-      it 'returns empty hash' do
+      it 'returns hash with code Malicious_Response' do
         Offer.stub!(:valid_signature?) { false }
         resp = Offer.find(@attributes)
         expect(resp).to be_a(Hash)
         expect(resp).to have_key(:code)
+        expect(resp[:code]).to eql 'Malicious_Response'
       end
     end
   end

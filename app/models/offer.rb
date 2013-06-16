@@ -10,7 +10,7 @@ class Offer
       JSON.parse(response.body)
     else
       Rails.logger.warn "Malicious response: #{response.body}" 
-      { code: 'Malicious_Request'}
+      { code: 'Malicious_Response'}
     end
   end
 
